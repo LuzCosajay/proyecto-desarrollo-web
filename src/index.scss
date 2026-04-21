@@ -1,0 +1,151 @@
+$primary: #b4f9dc;
+$secondary: #b4f9dc;
+$third: #d1d5ff;
+$border-radius: 0.75rem;
+
+@import "bootstrap/scss/bootstrap";
+
+body {
+  margin: 0;
+  background-color: #efefef;
+  font-family: Arial, sans-serif;
+}
+
+.app-page {
+  min-height: 100vh;
+  background-color: #efefef;
+}
+
+.top-navbar {
+  background-color: #111;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  color: white;
+  font-size: 14px;
+  padding: 14px 20px;
+}
+
+.logo {
+  color: #61dafb;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.main-content {
+  padding: 30px 40px;
+}
+
+.form-section {
+  padding-top: 25px;
+}
+
+.fake-form {
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.fake-form label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 8px;
+  color: #222;
+}
+
+.fake-input {
+  width: 100%;
+  height: 38px;
+  background-color: #d9d9d9;
+  border: none;
+  margin-bottom: 18px;
+}
+
+.fake-input-lg {
+  height: 80px;
+}
+
+.real-input {
+  width: 100%;
+  height: 38px;
+  border: none;
+  background-color: #d9d9d9;
+  padding: 0 10px;
+  margin-bottom: 18px;
+}
+
+.add-goal-btn {
+  background-color: $third;
+  color: black;
+  border: none;
+  margin-top: 8px;
+}
+
+.cards-section {
+  padding-right: 20px;
+}
+
+.goals-scroll {
+  height: calc(100vh - 110px);
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.floating-btn {
+  display: none;
+}
+
+/* Modal */
+.modal-content {
+  border-radius: 12px;
+  border: none;
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .main-content {
+    padding: 16px;
+  }
+
+  .cards-section {
+    padding-top: 70px;
+    padding-right: 0;
+  }
+
+  .form-section {
+    display: none;
+  }
+
+  .cards-section {
+    padding-right: 0;
+  }
+
+  .goals-scroll {
+    height: auto;
+    overflow-y: visible;
+    padding-right: 0;
+  }
+
+  .floating-btn {
+    display: block;
+    position: fixed;
+    top: 80px;
+    left: 20px;
+    background-color: #d1d5ff;
+    color: black;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 22px;
+    z-index: 9999;
+  }
+
+  .modal-form {
+    max-width: 100%;
+  }
+}
