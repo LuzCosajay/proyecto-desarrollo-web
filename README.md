@@ -1,7 +1,7 @@
 # Proyecto Desarrollo de Aplicaciones Web
 
 ## Descripción
-Aplicación web responsive desarrollada con React y Vite que permite visualizar metas personales.
+Aplicación web desarrollada con React y Vite que permite visualizar metas personales.
 
 ## Tecnologías utilizadas
 - React
