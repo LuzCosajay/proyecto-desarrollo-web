@@ -1,32 +1,39 @@
-import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+
+import { useTaskStore, type Task } from '../../store/taskStore';
+import { useGoalStore, type Goal } from '../../store/goalStore';
+import { useMenuStore } from '../../store/menuStore';
+
 import './Item.scss';
 
-function Item() {
+function Item(props: Task | Goal) {
+  const active = useMenuStore((state) => state.menu.active);
+  const removeTask = useTaskStore((state) => state.removeTask);
+  const removeGoal = useGoalStore((state) => state.removeGoal);
+
+  const handleRemove = () => {
+    if (active === 'tasks') {
+      removeTask(props as Task);
+    } else {
+      removeGoal(props as Goal);
+    }
+  };
+
   return (
     <Card className="item-card">
       <Card.Body>
+        <Card.Title>{props.name}</Card.Title>
 
-        <Card.Title>Meta 1</Card.Title>
+        <Card.Text className="fw-bold">Descripción</Card.Text>
+        <Card.Text>{props.description}</Card.Text>
 
-        <Card.Subtitle className="mb-2">
-          <strong>Descripción</strong>
-        </Card.Subtitle>
+        <Card.Text className="fw-bold">Fecha de vencimiento</Card.Text>
+        <Card.Text>{props.dueDate}</Card.Text>
 
-        <Card.Text>
-          Descripción de la meta
-        </Card.Text>
-
-        <Card.Subtitle className="mt-3">
-          <strong>Fecha de vencimiento</strong>
-        </Card.Subtitle>
-
-        <Card.Text>
-          15/04/2026
-        </Card.Text>
-
-        <Button variant="info">Eliminar</Button>
-
+        <Button variant="info" onClick={handleRemove}>
+          Eliminar
+        </Button>
       </Card.Body>
     </Card>
   );

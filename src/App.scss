@@ -21,7 +21,7 @@
   .floating-btn {
     display: block;
     position: fixed;
-    top: 90px;
+    top: 160px; /* ajustado para no tapar navbar expandido */
     left: 20px;
     background-color: #d1d5ff;
     border: none;
@@ -29,5 +29,9 @@
     border-radius: 20px;
     padding: 10px 22px;
     z-index: 9999;
+  }
+
+  .items-column {
+    padding-top: 90px;
   }
 }
