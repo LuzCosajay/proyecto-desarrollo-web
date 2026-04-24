@@ -1,0 +1,12 @@
+$primary: #B4F9DC;
+$secondary: #B4F9DC;
+$third: #D1D5FF;
+$border-radius: 0.75rem;
+
+@import "bootstrap/scss/bootstrap";
+
+body {
+  margin: 0;
+  background-color: #efefef;
+  font-family: Arial, sans-serif;
+}

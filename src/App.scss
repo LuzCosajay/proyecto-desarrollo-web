@@ -1,0 +1,33 @@
+.app-container {
+  margin-top: 30px;
+}
+
+.items-column {
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+/* Botón flotante oculto en desktop */
+.floating-btn {
+  display: none;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .form-desktop {
+    display: none;
+  }
+
+  .floating-btn {
+    display: block;
+    position: fixed;
+    top: 90px;
+    left: 20px;
+    background-color: #d1d5ff;
+    border: none;
+    color: black;
+    border-radius: 20px;
+    padding: 10px 22px;
+    z-index: 9999;
+  }
+}
