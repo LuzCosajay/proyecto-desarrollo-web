@@ -21,25 +21,24 @@ function FormComponent({ onAdd }: FormComponentProps) {
   const addTask = useTaskStore((state) => state.addTask);
   const addGoal = useGoalStore((state) => state.addGoal);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     const name = inputRefName.current?.value;
     const description = inputRefDescription.current?.value;
-    const dueDate = inputRefDueDate.current?.value;
+    const duedate = inputRefDueDate.current?.value;
 
-    if (name && description && dueDate) {
+    if (name && description && duedate) {
       const newItem = {
-        id: Date.now(),
         name,
         description,
-        dueDate,
+        duedate,
       };
 
       if (active === 'tasks') {
-        addTask(newItem);
+        await addTask(newItem);
       } else {
-        addGoal(newItem);
+        await addGoal(newItem);
       }
 
       inputRefName.current!.value = '';

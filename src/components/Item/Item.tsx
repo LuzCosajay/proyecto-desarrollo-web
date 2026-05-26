@@ -29,7 +29,7 @@ function Item(props: Task | Goal) {
         <Card.Text>{props.description}</Card.Text>
 
         <Card.Text className="fw-bold">Fecha de vencimiento</Card.Text>
-        <Card.Text>{props.dueDate}</Card.Text>
+        <Card.Text>{props.duedate}</Card.Text>
 
         <Button variant="info" onClick={handleRemove}>
           Eliminar

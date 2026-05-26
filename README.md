@@ -1,33 +1,73 @@
-# Proyecto Desarrollo de Aplicaciones Web - Semana 2
+# Proyecto Desarrollo de Aplicaciones Web - Semana 6
 
-## Descripción
-Aplicación web desarrollada con React, Vite, React Bootstrap y Sass para la gestión de tareas y metas, utilizando Zustand para el manejo de estado global.
+Frontend desarrollado con React, TypeScript y Vite para la aplicación To Do List.
+
+## Rama final
+
+```bash
+git checkout semana6
+```
 
 ## Tecnologías utilizadas
+
 - React
+- TypeScript
 - Vite
-- React Bootstrap
-- Sass
 - Zustand
+- Bootstrap
+- Docker
+- Nginx
+
+## Instalación
+
+Clonar repositorio:
+
+```bash
+git clone https://github.com/LuzCosajay/proyecto-desarrollo-web
+```
+
+Instalar dependencias:
+
+```bash
+npm install
+```
+
+Ejecutar proyecto:
+
+```bash
+npm run dev
+```
+
+## Docker
+
+Construir imagen:
+
+```bash
+docker build -t frontend-todolist .
+```
+
+Ejecutar contenedor:
+
+```bash
+docker run -d -p 8080:80 --name frontend-todolist-container frontend-todolist
+```
+
+Abrir en navegador:
+
+```text
+http://localhost:8080
+```
 
 ## Funcionalidades
-- Visualización de tareas y metas
-- Navegación entre vistas (Tareas / Metas)
-- Agregar tareas y metas
-- Eliminar tareas y metas
-- Manejo de estado global con Zustand
-- Integración con Redux DevTools
-- Diseño responsive (desktop y mobile)
-- Botón flotante en versión móvil
 
-## Instalación y ejecución
-git clone https://github.com/LuzCosajay/proyecto-desarrollo-web.git
-cd proyecto-desarrollo-web
-git checkout semana2
-npm install
-npm run dev
+- Agregar tareas
+- Eliminar tareas
+- Agregar metas
+- Eliminar metas
+- Integración con backend
+- Persistencia de datos
+- Dockerización del frontend
 
-## Notas
-- Se utilizó Zustand para manejar el estado global de tareas, metas y navegación.
-- Redux DevTools permite visualizar los cambios de estado en tiempo real.
-- El diseño se adapta a dispositivos móviles mediante media queries y un botón flotante para agregar elementos.
+## Autor
+
+Luz Belén Cosajay Campos

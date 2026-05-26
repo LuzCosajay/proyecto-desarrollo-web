@@ -24,43 +24,16 @@ function App() {
   const tasks = useTaskStore((state) => state.tasks);
   const goals = useGoalStore((state) => state.goals);
 
-  const setTasks = useTaskStore((state) => state.setTasks);
-  const setGoals = useGoalStore((state) => state.setGoals);
+  const fetchTasks = useTaskStore((state) => state.fetchTasks);
+  const fetchGoals = useGoalStore((state) => state.fetchGoals);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   useEffect(() => {
-    setTasks([
-      {
-        id: 1,
-        name: 'Tarea 1',
-        description: 'Descripción de la tarea 1',
-        dueDate: '2026-04-15',
-      },
-      {
-        id: 2,
-        name: 'Tarea 2',
-        description: 'Descripción de la tarea 2',
-        dueDate: '2026-04-20',
-      },
-    ]);
-
-    setGoals([
-      {
-        id: 1,
-        name: 'Meta 1',
-        description: 'Descripción de la meta 1',
-        dueDate: '2026-04-15',
-      },
-      {
-        id: 2,
-        name: 'Meta 2',
-        description: 'Descripción de la meta 2',
-        dueDate: '2026-04-30',
-      },
-    ]);
-  }, [setTasks, setGoals]);
+    fetchTasks();
+    fetchGoals();
+  }, [fetchTasks, fetchGoals]);
 
   return (
     <>
@@ -74,10 +47,10 @@ function App() {
 
           <Col md={8} className="items-column">
             {active === 'tasks' &&
-              tasks.map((task) => <Item key={task.id} {...task} />)}
+              tasks.map((task) => <Item key={task._id} {...task} />)}
 
             {active === 'goals' &&
-              goals.map((goal) => <Item key={goal.id} {...goal} />)}
+              goals.map((goal) => <Item key={goal._id} {...goal} />)}
           </Col>
         </Row>
       </Container>

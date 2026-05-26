@@ -1,35 +1,43 @@
 import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
+import { getTasks, addTaskAPI, removeTaskAPI } from '../API/taskAPI';
 
 export type Task = {
-  id: number;
+  _id: string;
   name: string;
   description: string;
-  dueDate: string;
+  duedate: string;
 };
 
 type TaskState = {
   tasks: Task[];
   setTasks: (tasks: Task[]) => void;
-  addTask: (task: Task) => void;
+  fetchTasks: () => void;
+  addTask: (task: Omit<Task, '_id'>) => void;
   removeTask: (task: Task) => void;
 };
 
 export const useTaskStore = create<TaskState>()(
   devtools(
-    (set) => ({
+    (set, get) => ({
       tasks: [],
+
       setTasks: (tasks) => set({ tasks }, false, 'setTasks'),
-      addTask: (task) =>
-        set((state) => ({ tasks: [...state.tasks, task] }), false, 'addTask'),
-      removeTask: (task) =>
-        set(
-          (state) => ({
-            tasks: state.tasks.filter((item) => item.id !== task.id),
-          }),
-          false,
-          'removeTask'
-        ),
+
+      fetchTasks: async () => {
+        const tasks = await getTasks();
+        set({ tasks }, false, 'fetchTasks');
+      },
+
+      addTask: async (task) => {
+        await addTaskAPI(task);
+        get().fetchTasks();
+      },
+
+      removeTask: async (task) => {
+        await removeTaskAPI(task._id);
+        get().fetchTasks();
+      },
     }),
     { name: 'task-store' }
   )
